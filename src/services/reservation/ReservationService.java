@@ -27,24 +27,25 @@ public class ReservationService {
                                     final Date checkInDate, final Date checkOutDate) {
         final Reservation reservation = new Reservation(customer, room, checkInDate, checkOutDate);
 
-        final Collection<Reservation> customersReservation = this.getCustomersReservation(customer);
-        customersReservation.add(reservation);
+        final Collection<Reservation> customerReservations = this.getCustomersReservation(customer);
+        customerReservations.add(reservation);
 
-        reservations.put(customer.getEmail(), customersReservation);
+        reservations.put(customer.getEmail(), customerReservations);
 
         return reservation;
     }
 
-    public Collection<IRoom> findRooms(Date checkInDate, Date checkOutDate) {
+    //public Collection<IRoom> findRooms(Date checkInDate, Date checkOutDate) {
 
-    }
+    //}
 
     public Collection<Reservation> getCustomersReservation(Customer customer) {
         return reservations.get(customer.getEmail());
     }
 
     public void printAllReservation() {
-
+        reservations.values().forEach(reservations -> reservations
+                .forEach(reservation -> System.out.println(reservation + "\n")));
     }
 
     public ReservationService getSingleton() {
