@@ -26,6 +26,10 @@ public class Customer {
         }
     }
 
+    public String getEmail() {
+        return this.email;
+    }
+
     @Override
     public String toString() {
         return "First Name: " + this.firstName

@@ -4,9 +4,9 @@ import models.room.enums.RoomType;
 
 public class Room implements IRoom {
 
-    private String roomNumber;
-    private Double price;
-    private RoomType enumeration;
+    private final String roomNumber;
+    private final Double price;
+    private final RoomType enumeration;
 
     public Room(final String roomNumber, final Double price, final RoomType enumeration) {
         this.roomNumber = roomNumber;
@@ -27,7 +27,7 @@ public class Room implements IRoom {
     }
 
     public boolean isFree() {
-        return true;
+        return this.price != null && this.price.equals(0.0);
     }
 
     @Override
