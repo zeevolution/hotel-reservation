@@ -91,7 +91,13 @@ public class ReservationService {
     }
 
     public void printAllReservation() {
-        getAllReservations().forEach(reservation -> System.out.println(reservation + "\n"));
+        Collection<Reservation> reservations = getAllReservations();
+
+        if (reservations.isEmpty()) {
+            System.out.println("No reservations found.");
+        } else {
+            reservations.forEach(reservation -> System.out.println(reservation + "\n"));
+        }
     }
 
     private Collection<Reservation> getAllReservations() {

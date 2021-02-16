@@ -53,6 +53,6 @@ public class MainMenu {
                 "4. Admin\n" +
                 "5. Exit\n" +
                 "--------------------------------------------\n" +
-                "Please select a number for the menu option\n");
+                "Please select a number for the menu option:\n");
     }
 }
