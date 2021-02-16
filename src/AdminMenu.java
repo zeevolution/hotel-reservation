@@ -81,7 +81,8 @@ public class AdminMenu {
         adminResource.addRoom(Collections.singletonList(room));
         System.out.println("Room added successfully!");
 
-        printMenu();
+        System.out.println("Would like to add another room? Y/N");
+        addAnotherRoom();
     }
 
     private static double enterRoomPrice(final Scanner scanner) {
@@ -100,6 +101,32 @@ public class AdminMenu {
         } catch (IllegalArgumentException exp) {
             System.out.println("Invalid room type! Please, choose 1 for single bed or 2 for double bed:");
             return enterRoomType(scanner);
+        }
+    }
+
+    private static void addAnotherRoom() {
+        final Scanner scanner = new Scanner(System.in);
+
+        try {
+            String anotherRoom;
+
+            anotherRoom = scanner.nextLine();
+
+            while ((anotherRoom.charAt(0) != 'Y' && anotherRoom.charAt(0) != 'N')
+                    || anotherRoom.length() != 1) {
+                System.out.println("Please enter Y (Yes) or N (No)");
+                anotherRoom = scanner.nextLine();
+            }
+
+            if (anotherRoom.charAt(0) == 'Y') {
+                addRoom();
+            } else if (anotherRoom.charAt(0) == 'N') {
+                printMenu();
+            } else {
+                addAnotherRoom();
+            }
+        } catch (StringIndexOutOfBoundsException ex) {
+            addAnotherRoom();
         }
     }
 
