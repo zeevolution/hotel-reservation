@@ -1,6 +1,6 @@
-package tests;
+package test;
 
-import models.customer.Customer;
+import model.customer.Customer;
 
 public class Tester {
 

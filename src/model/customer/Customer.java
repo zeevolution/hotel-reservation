@@ -1,4 +1,4 @@
-package models.customer;
+package model.customer;
 
 import java.util.regex.Pattern;
 

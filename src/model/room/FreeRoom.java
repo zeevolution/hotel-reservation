@@ -1,6 +1,6 @@
-package models.room;
+package model.room;
 
-import models.room.enums.RoomType;
+import model.room.enums.RoomType;
 
 public class FreeRoom extends Room {
 

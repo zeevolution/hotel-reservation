@@ -1,6 +1,6 @@
-package services.customer;
+package service.customer;
 
-import models.customer.Customer;
+import model.customer.Customer;
 
 import java.util.Collection;
 import java.util.HashMap;

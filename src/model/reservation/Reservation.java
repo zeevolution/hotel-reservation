@@ -1,7 +1,7 @@
-package models.reservation;
+package model.reservation;
 
-import models.customer.Customer;
-import models.room.IRoom;
+import model.customer.Customer;
+import model.room.IRoom;
 
 import java.util.Date;
 
@@ -18,6 +18,18 @@ public class Reservation {
         this.room = room;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
+    }
+
+    public IRoom getRoom() {
+        return this.room;
+    }
+
+    public Date getCheckInDate() {
+        return this.checkInDate;
+    }
+
+    public Date getCheckOutDate() {
+        return this.checkOutDate;
     }
 
     @Override
