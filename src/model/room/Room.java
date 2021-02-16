@@ -32,8 +32,8 @@ public class Room implements IRoom {
 
     @Override
     public String toString() {
-        return "Room Number:" + this.roomNumber
-                + " Price:" + this.price
-                + " Enumeration:" + this.enumeration;
+        return "Room Number: " + this.roomNumber
+                + " Price: $" + this.price
+                + " Enumeration: " + this.enumeration;
     }
 }
