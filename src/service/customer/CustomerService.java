@@ -14,6 +14,10 @@ public class CustomerService {
 
     private CustomerService() {}
 
+    public static CustomerService getSingleton() {
+        return SINGLETON;
+    }
+
     public void addCustomer(final String email, final String firstName, final String lastName) {
         customers.put(email, new Customer(firstName, lastName, email));
     }
@@ -24,9 +28,5 @@ public class CustomerService {
 
     public Collection<Customer> getAllCustomers() {
         return customers.values();
-    }
-
-    public CustomerService getSingleton() {
-        return SINGLETON;
     }
 }

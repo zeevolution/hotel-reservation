@@ -22,6 +22,10 @@ public class ReservationService {
 
     private ReservationService() {}
 
+    public static ReservationService getSingleton() {
+        return SINGLETON;
+    }
+
     public void addRoom(final IRoom room) {
         rooms.put(room.getRoomNumber(), room);
     }
@@ -90,9 +94,5 @@ public class ReservationService {
         Collection<Reservation> allReservations = new LinkedList<>();
         reservations.values().forEach(allReservations::addAll);
         return allReservations;
-    }
-
-    public ReservationService getSingleton() {
-        return SINGLETON;
     }
 }
