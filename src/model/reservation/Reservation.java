@@ -7,10 +7,10 @@ import java.util.Date;
 
 public class Reservation {
 
-    private Customer customer;
-    private IRoom room;
-    private Date checkInDate;
-    private Date checkOutDate;
+    private final Customer customer;
+    private final IRoom room;
+    private final Date checkInDate;
+    private final Date checkOutDate;
 
     public Reservation(final Customer customer, final IRoom room,
                        final Date checkInDate, final Date checkOutDate) {

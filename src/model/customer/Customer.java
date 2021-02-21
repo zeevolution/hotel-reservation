@@ -6,9 +6,9 @@ public class Customer {
 
     private static final String EMAIL_REGEX_PATTERN = "^(.+)@(.+).(.+)$";
 
-    private String firstName;
-    private String lastName;
-    private String email;
+    private final String firstName;
+    private final String lastName;
+    private final String email;
 
     public Customer(final String firstName, final String lastName, final String email) {
         this.isValidEmail(email);

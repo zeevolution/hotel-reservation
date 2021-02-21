@@ -55,13 +55,11 @@ public class ReservationService {
     }
 
     public Collection<IRoom> findRooms(final Date checkInDate, final Date checkOutDate) {
-        Collection<IRoom> availableRooms = findAvailableRooms(checkInDate, checkOutDate);
+        return findAvailableRooms(checkInDate, checkOutDate);
+    }
 
-        if (availableRooms.isEmpty()) {
-            return findAvailableRooms(addDefaultPlusDays(checkInDate), addDefaultPlusDays(checkOutDate));
-        }
-
-        return availableRooms;
+    public Collection<IRoom> findAlternativeRooms(final Date checkInDate, final Date checkOutDate) {
+        return findAvailableRooms(addDefaultPlusDays(checkInDate), addDefaultPlusDays(checkOutDate));
     }
 
     private Collection<IRoom> findAvailableRooms(final Date checkInDate, final Date checkOutDate) {
@@ -76,7 +74,7 @@ public class ReservationService {
                 .collect(Collectors.toList());
     }
 
-    private Date addDefaultPlusDays(final Date date) {
+    public Date addDefaultPlusDays(final Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.add(Calendar.DATE, RECOMMENDED_ROOMS_DEFAULT_PLUS_DAYS);
@@ -90,7 +88,7 @@ public class ReservationService {
                 && checkOutDate.after(reservation.getCheckInDate());
     }
 
-    public Collection<Reservation> getCustomersReservation(Customer customer) {
+    public Collection<Reservation> getCustomersReservation(final Customer customer) {
         return reservations.get(customer.getEmail());
     }
 
