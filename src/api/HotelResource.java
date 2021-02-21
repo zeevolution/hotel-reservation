@@ -7,6 +7,7 @@ import service.customer.CustomerService;
 import service.reservation.ReservationService;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 
 public class HotelResource {
@@ -40,6 +41,12 @@ public class HotelResource {
     }
 
     public Collection<Reservation> getCustomersReservations(String customerEmail) {
+        final Customer customer = getCustomer(customerEmail);
+
+        if (customer == null) {
+            return Collections.emptyList();
+        }
+
         return reservationService.getCustomersReservation(getCustomer(customerEmail));
     }
 

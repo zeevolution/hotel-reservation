@@ -44,7 +44,7 @@ public class AdminMenu {
                             break;
                     }
                 } else {
-                    System.out.println("Invalid action\n");
+                    System.out.println("Error: Invalid action\n");
                 }
             } while (line.charAt(0) != '5' || line.length() != 1);
         } catch (StringIndexOutOfBoundsException ex) {
@@ -53,7 +53,7 @@ public class AdminMenu {
     }
 
     private static void printMenu() {
-        System.out.print("Admin Menu\n" +
+        System.out.print("\nAdmin Menu\n" +
                 "--------------------------------------------\n" +
                 "1. See all Customers\n" +
                 "2. See all Rooms\n" +

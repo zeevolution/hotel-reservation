@@ -5,8 +5,8 @@ import model.reservation.Reservation;
 import model.room.IRoom;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -42,9 +42,13 @@ public class ReservationService {
                                     final Date checkInDate, final Date checkOutDate) {
         final Reservation reservation = new Reservation(customer, room, checkInDate, checkOutDate);
 
-        final Collection<Reservation> customerReservations = getCustomersReservation(customer);
-        customerReservations.add(reservation);
+        Collection<Reservation> customerReservations = getCustomersReservation(customer);
 
+        if (customerReservations == null) {
+            customerReservations = new LinkedList<>();
+        }
+
+        customerReservations.add(reservation);
         reservations.put(customer.getEmail(), customerReservations);
 
         return reservation;
