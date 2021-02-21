@@ -116,7 +116,7 @@ public class MainMenu {
                 final String customerEmail = scanner.nextLine();
 
                 if (hotelResource.getCustomer(customerEmail) == null) {
-                    System.out.println("Customer not found. \nYou may need to create a new account.");
+                    System.out.println("Customer not found.\nYou may need to create a new account.");
                 } else {
                     System.out.println("What room number would you like to reserve?");
                     final String roomNumber = scanner.nextLine();
@@ -129,7 +129,7 @@ public class MainMenu {
                         System.out.println("Reservation created successfully!");
                         System.out.println(reservation);
                     } else {
-                        System.out.println("Error: invalid room number. Start reservation again.");
+                        System.out.println("Error: room number not available.\nStart reservation again.");
                     }
                 }
 
@@ -138,6 +138,10 @@ public class MainMenu {
                 System.out.println("Please, create an account.");
                 printMainMenu();
             }
+        } else if ("n".equals(bookRoom)){
+            printMainMenu();
+        } else {
+            reserveRoom(scanner, checkInDate, checkOutDate, rooms);
         }
     }
 
