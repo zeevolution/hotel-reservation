@@ -2,6 +2,10 @@ package model.room;
 
 import model.room.enums.RoomType;
 
+/**
+ * @author joseneto
+ *
+ */
 public class FreeRoom extends Room {
 
     public FreeRoom(final String roomNumber, final RoomType enumeration) {

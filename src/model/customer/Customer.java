@@ -2,6 +2,10 @@ package model.customer;
 
 import java.util.regex.Pattern;
 
+/**
+ * @author joseneto
+ *
+ */
 public class Customer {
 
     private static final String EMAIL_REGEX_PATTERN = "^(.+)@(.+).(.+)$";

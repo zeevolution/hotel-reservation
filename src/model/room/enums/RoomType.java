@@ -1,5 +1,9 @@
 package model.room.enums;
 
+/**
+ * @author joseneto
+ *
+ */
 public enum RoomType {
     SINGLE("1"),
     DOUBLE("2");

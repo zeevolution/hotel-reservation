@@ -5,6 +5,10 @@ import model.room.IRoom;
 
 import java.util.Date;
 
+/**
+ * @author joseneto
+ *
+ */
 public class Reservation {
 
     private final Customer customer;

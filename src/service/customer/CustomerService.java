@@ -6,6 +6,10 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author joseneto
+ *
+ */
 public class CustomerService {
 
     private static final CustomerService SINGLETON = new CustomerService();

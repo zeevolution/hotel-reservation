@@ -12,6 +12,10 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * @author joseneto
+ *
+ */
 public class ReservationService {
 
     private static final ReservationService SINGLETON = new ReservationService();

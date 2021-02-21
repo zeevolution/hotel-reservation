@@ -2,6 +2,10 @@ package model.room;
 
 import model.room.enums.RoomType;
 
+/**
+ * @author joseneto
+ *
+ */
 public class Room implements IRoom {
 
     private final String roomNumber;

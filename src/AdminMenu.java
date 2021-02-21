@@ -8,6 +8,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
 
+/**
+ * @author joseneto
+ *
+ */
 public class AdminMenu {
 
     private static final AdminResource adminResource = AdminResource.getSingleton();

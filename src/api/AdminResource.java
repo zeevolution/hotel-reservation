@@ -8,6 +8,10 @@ import service.reservation.ReservationService;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * @author joseneto
+ *
+ */
 public class AdminResource {
 
     private static final AdminResource SINGLETON = new AdminResource();

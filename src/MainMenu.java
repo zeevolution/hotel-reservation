@@ -8,6 +8,10 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Scanner;
 
+/**
+ * @author joseneto
+ *
+ */
 public class MainMenu {
 
     private static final String DEFAULT_DATE_FORMAT = "MM/dd/yyyy";

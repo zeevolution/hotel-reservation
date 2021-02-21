@@ -10,6 +10,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 
+/**
+ * @author joseneto
+ *
+ */
 public class HotelResource {
 
     private static final HotelResource SINGLETON = new HotelResource();
