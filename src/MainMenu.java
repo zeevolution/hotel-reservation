@@ -17,7 +17,7 @@ public class MainMenu {
     private static final String DEFAULT_DATE_FORMAT = "MM/dd/yyyy";
     private static final HotelResource hotelResource = HotelResource.getSingleton();
 
-    public static void main(String[] args) {
+    public static void mainMenu() {
         String line = "";
         Scanner scanner = new Scanner(System.in);
 
@@ -82,11 +82,11 @@ public class MainMenu {
                             "\nCheck-Out Date:" + alternativeCheckOut);
 
                     printRooms(alternativeRooms);
-                    reserveRoom(scanner, alternativeCheckIn, alternativeCheckOut);
+                    reserveRoom(scanner, alternativeCheckIn, alternativeCheckOut, alternativeRooms);
                 }
             } else {
                 printRooms(availableRooms);
-                reserveRoom(scanner, checkIn, checkOut);
+                reserveRoom(scanner, checkIn, checkOut, availableRooms);
             }
         }
     }
@@ -102,7 +102,8 @@ public class MainMenu {
         return null;
     }
 
-    private static void reserveRoom(final Scanner scanner, final Date checkInDate, final Date checkOutDate) {
+    private static void reserveRoom(final Scanner scanner, final Date checkInDate,
+                                    final Date checkOutDate, final Collection<IRoom> rooms) {
         System.out.println("Would you like to book? y/n");
         final String bookRoom = scanner.nextLine();
 
@@ -115,16 +116,21 @@ public class MainMenu {
                 final String customerEmail = scanner.nextLine();
 
                 if (hotelResource.getCustomer(customerEmail) == null) {
-                    System.out.println("Customer not found. You may create a new account.");
+                    System.out.println("Customer not found. \nYou may need to create a new account.");
                 } else {
                     System.out.println("What room number would you like to reserve?");
                     final String roomNumber = scanner.nextLine();
 
-                    final IRoom room = hotelResource.getRoom(roomNumber);
+                    if (rooms.stream().anyMatch(room -> room.getRoomNumber().equals(roomNumber))) {
+                        final IRoom room = hotelResource.getRoom(roomNumber);
 
-                    final Reservation reservation = hotelResource
-                            .bookARoom(customerEmail, room, checkInDate, checkOutDate);
-                    System.out.println(reservation);
+                        final Reservation reservation = hotelResource
+                                .bookARoom(customerEmail, room, checkInDate, checkOutDate);
+                        System.out.println("Reservation created successfully!");
+                        System.out.println(reservation);
+                    } else {
+                        System.out.println("Error: invalid room number. Start reservation again.");
+                    }
                 }
 
                 printMainMenu();
