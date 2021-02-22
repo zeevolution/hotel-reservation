@@ -2,6 +2,8 @@ package model.room;
 
 import model.room.enums.RoomType;
 
+import java.util.Objects;
+
 /**
  * @author joseneto
  *
@@ -39,5 +41,24 @@ public class Room implements IRoom {
         return "Room Number: " + this.roomNumber
                 + " Price: $" + this.price
                 + " Enumeration: " + this.enumeration;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == this) {
+            return true;
+        }
+
+        if(!(obj instanceof Room)) {
+            return false;
+        }
+
+        final Room room = (Room) obj;
+        return Objects.equals(this.roomNumber, room.roomNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(roomNumber);
     }
 }
