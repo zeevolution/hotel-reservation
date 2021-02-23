@@ -67,14 +67,17 @@ public class ReservationService {
     }
 
     private Collection<IRoom> findAvailableRooms(final Date checkInDate, final Date checkOutDate) {
-        Collection<Reservation> allReservations = getAllReservations();
+        final Collection<Reservation> allReservations = getAllReservations();
+        final Collection<IRoom> notAvailableRooms = new LinkedList<>();
 
-        Collection<IRoom> notAvailableRooms = allReservations.stream()
-                .filter(reservation -> reservationOverlaps(reservation, checkInDate, checkOutDate))
-                .map(Reservation::getRoom).collect(Collectors.toList());
+        for (Reservation reservation : allReservations) {
+            if (reservationOverlaps(reservation, checkInDate, checkOutDate)) {
+                notAvailableRooms.add(reservation.getRoom());
+            }
+        }
 
         return rooms.values().stream().filter(room -> notAvailableRooms.stream()
-                .noneMatch(notAvailableRoom -> notAvailableRoom.getRoomNumber().equals(room.getRoomNumber())))
+                .noneMatch(notAvailableRoom -> notAvailableRoom.equals(room)))
                 .collect(Collectors.toList());
     }
 
@@ -97,18 +100,24 @@ public class ReservationService {
     }
 
     public void printAllReservation() {
-        Collection<Reservation> reservations = getAllReservations();
+        final Collection<Reservation> reservations = getAllReservations();
 
         if (reservations.isEmpty()) {
             System.out.println("No reservations found.");
         } else {
-            reservations.forEach(reservation -> System.out.println(reservation + "\n"));
+            for (Reservation reservation : reservations) {
+                System.out.println(reservation + "\n");
+            }
         }
     }
 
     private Collection<Reservation> getAllReservations() {
-        Collection<Reservation> allReservations = new LinkedList<>();
-        reservations.values().forEach(allReservations::addAll);
+        final Collection<Reservation> allReservations = new LinkedList<>();
+
+        for(Collection<Reservation> reservations : reservations.values()) {
+            allReservations.addAll(reservations);
+        }
+
         return allReservations;
     }
 }
