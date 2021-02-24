@@ -7,6 +7,8 @@ The project emphasizes the use of Java programming language for practicing and e
 You may run the project by executing the [HotelApplication](https://github.com/zeevolution/hotel-reservation/blob/master/src/HotelApplication.java) class
 on your favorite Java IDEA.
 
+![hotel_reservation](https://user-images.githubusercontent.com/15267154/108932911-ea80a180-7628-11eb-8922-1929316dc80e.gif)
+
 ## User Scenarios
 The application provides four user scenarios:
 
