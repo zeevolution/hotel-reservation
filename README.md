@@ -1,3 +1,8 @@
+> Hi! I have created another version of this project in the Kotlin Language.
+> It has the same code structures and features, so you can compare the approaches and differences
+> between Java and Kotlin languages.
+> Feel welcome to take a look at https://github.com/zeevolution/hotel-reservation-kotlin
+
 # HotelReservation - A Java project for hotel reservation management
 
 This is a `java` application for booking hotel rooms which I developed for the Udacity's [Java Programming Course](https://www.udacity.com/course/java-programming-nanodegree--nd079).
